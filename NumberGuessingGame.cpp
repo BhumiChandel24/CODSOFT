@@ -1,30 +1,32 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 int main()
 {
-    int n;
-    int x = 24, count = 0;
+    srand((unsigned int) time(NULL));
+    int num = (rand() % 100) + 1; 
+    int count = 0;
     cout << "Number Guessing Game." << endl;
-    int i = 1;
 
     do
     {
         cout << "Guess a number between 1 to 99. " << endl;
-        cin >> n;
-        if (n > x)
+        cin >> count;
+        if (num > count)
         {
-            cout << "The guess is too high!" << endl;
+            cout << "guess higher!" << endl;
         }
-        else if (n < x)
+        else if (num < count)
         {
-            cout << "The guess is too low!" << endl;
+            cout << "guess lower!" << endl;
         }
         else
         {
-            cout << "correct guess , the number is " << n << "  and the Attempts made are " << count;
+            cout << "correct guess , the number is " << num <<endl <<"YOU WON !!";
         }
-        count++;
-    } while (n != x);
+         
+    } while (count != num);
 
     return 0;
 }
